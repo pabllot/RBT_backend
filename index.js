@@ -27,6 +27,17 @@ app.get("/pizzas", (req, res) => {
         return res.json(data)
     })
 })
+
+app.get("/pedidos", (req, res) => {
+    const q = "SELECT * FROM pedidos"
+
+    db.query(q, (err,data)=>{
+        if(err) return res.json(err)
+
+        return res.json(data)
+    })
+})
+
 app.post("/pizzas", (req, res) => {
     const q = "INSERT INTO `rbt`.`pedidos` (`name`, `pizza`, `price`, `quantity`) VALUES (?)"
 
