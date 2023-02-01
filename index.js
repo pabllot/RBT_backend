@@ -69,6 +69,15 @@ app.post("/pedidos/concluidos", (req, res) => {
         return res.json(data)
     })
 })
+app.post("/pedidos/delete", (req, res) => {
+    const q = "DELETE FROM `rbt`.`pedidos` WHERE (`id` = ?);"
+
+    db.query(q, [req.body.id], (err,data)=>{
+        if(err) return res.json(err)
+
+        return res.json(data)
+    })
+})
 
 app.listen(8800, () => {
     console.log("Connected to backend!!")
