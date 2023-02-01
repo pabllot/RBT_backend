@@ -50,6 +50,26 @@ app.post("/pizzas", (req, res) => {
     })
 })
 
+app.post("/pedidos/cancelados", (req, res) => {
+    const q = "UPDATE `rbt`.`pedidos` SET `status` = '3' WHERE (`id` = ?)"
+
+    db.query(q, [req.body.id], (err,data)=>{
+        if(err) return res.json(err)
+
+        return res.json(data)
+    })
+})
+
+app.post("/pedidos/concluidos", (req, res) => {
+    const q = "UPDATE `rbt`.`pedidos` SET `status` = '2' WHERE (`id` = ?)"
+
+    db.query(q, [req.body.id], (err,data)=>{
+        if(err) return res.json(err)
+
+        return res.json(data)
+    })
+})
+
 app.listen(8800, () => {
     console.log("Connected to backend!!")
 })
