@@ -13,6 +13,6 @@ export const db = mysql.createPool({
     acquireTimeout: 1000000,
     connectTimeout: 30000,
     debug: false,
-    port: 3306
+    port: '/var/run/mysqld/mysqld.sock'
 })
 
