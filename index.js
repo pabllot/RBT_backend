@@ -7,14 +7,7 @@ import { addOrder, cancelOrder, deleteOrder, getOrders, getPizzas, orderDone } f
 const app = express()
 
 app.use(express.json())
-
-const corsOptions = {
-    origin: 'https://railway.app',
-    credentials: true,
-    optionSuccessStatus: 200
-}
-
-app.use(cors(corsOptions))
+app.use(cors())
 
 dotenv.config()
 

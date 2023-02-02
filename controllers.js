@@ -5,7 +5,7 @@ export const getOrders = (req, res) => {
     db.getConnection(function(err, connection) {
         if (err) throw err; 
         const q = "SELECT * FROM pedidos"
-        connection.query(q, cors(), (err,data)=>{
+        connection.query(q, (err,data)=>{
             if(err) return res.json(err)
     
             return res.json(data)
