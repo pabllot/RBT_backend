@@ -12,7 +12,7 @@ app.use(cors())
 dotenv.config()
 
 app.get("/", (req, res) => {
-    res.json('backend is working!!!')
+    res.json('backend is working!!!' + PORT)
 })
 
 app.get("/pizzas", getPizzas)
