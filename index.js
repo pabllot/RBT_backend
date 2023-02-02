@@ -25,5 +25,5 @@ app.delete("/pedidos/delete/:id", deleteOrder)
 const PORT = process.env.PORT || 8800
 
 app.listen(PORT , () => {
-    console.log("Connected to backend!")
+    console.log("Connected to backend!" + PORT)
 })
