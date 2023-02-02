@@ -1,16 +1,30 @@
 import { db } from './connect.js'
 
 export const getOrders = (req, res) => {
-    const q = "SELECT * FROM pedidos"
+    db.getConnection(function(err, connection) {
+        if (err) throw err; // not connected!
+      
+        // Use the connection
+        const q = "SELECT * FROM pedidos"
+        connection.query(q, (err,data)=>{
+            if(err) return res.json(err)
     
-    db.query(q, (err,data)=>{
-        if(err) return res.json(err)
+            return res.json(data)
+        })
+          connection.release();
+      
+          // Handle error after the release.
+          if (err) throw err;
+      
+          // Don't use the connection here, it has been returned to the pool.
+        });
+      }
+    
+    
+    
 
-        return res.json(data)
-    })
-}
 
-export const getPizzas = (req, res) => {
+{/* export const getPizzas = (req, res) => {
     const q = "SELECT * FROM pizzas"
 
     db.query(q, (err,data)=>{
@@ -60,4 +74,4 @@ export const deleteOrder = (req, res) => {
 
         return res.json(data)
     })
-}
+} */}
