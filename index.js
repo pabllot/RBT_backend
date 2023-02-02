@@ -17,7 +17,7 @@ app.get("/pedidos", getOrders)
 app.post("/pizzas", addOrder)
 app.post("/pedidos/cancelados", cancelOrder)
 app.post("/pedidos/concluidos", orderDone)
-app.post("/pedidos/delete", deleteOrder)
+app.delete("/pedidos/delete/:id", deleteOrder)
 
 app.listen(8800, () => {
     console.log("Connected to backend!!")

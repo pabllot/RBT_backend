@@ -55,7 +55,7 @@ export const orderDone = (req, res) => {
 export const deleteOrder = (req, res) => {
     const q = "DELETE FROM `rbt`.`pedidos` WHERE (`id` = ?);"
 
-    db.query(q, [req.body.id], (err,data)=>{
+    db.query(q, [req.params.id], (err,data)=>{
         if(err) return res.json(err)
 
         return res.json(data)
