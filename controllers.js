@@ -2,7 +2,7 @@ import { db } from './connect.js'
 
 export const getOrders = (req, res) => {
     const q = "SELECT * FROM pedidos"
-
+    
     db.query(q, (err,data)=>{
         if(err) return res.json(err)
 
