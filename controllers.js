@@ -5,8 +5,7 @@ export const getOrders = (req, res) => {
         if (err) throw err; // not connected!
       
         // Use the connection
-        const q = "SELECT * FROM pedidos"
-        connection.query(q, (err,data)=>{
+        connection.query("SELECT * FROM pedidos", (err,data)=>{
             if(err) return res.json(err)
     
             return res.json(data)

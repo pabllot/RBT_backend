@@ -20,6 +20,6 @@ app.get("/pedidos", getOrders)
 
 const PORT = process.env.PORT || 8800
 
-app.listen(PORT , () => {
+app.listen(`0.0.0.0:${PORT}` , () => {
     console.log("Connected to backend!" + PORT)
 })
